@@ -33,16 +33,13 @@ func handle(w http.ResponseWriter, r *http.Request) {
 
 	slack_name, track := r.URL.Query().Get("slack_name"), r.URL.Query().Get("track")
 	result := new_result(slack_name, track)
-	res, err := json.Marshal(result)
-	if err != nil {
-		panic(err)
-	}
+	res, _ := json.Marshal(result)
 	w.Header().Add("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
 
 func main() {
-	http.HandleFunc("/", handle)
+	http.HandleFunc("/api", handle)
 	log.Fatal(http.ListenAndServe(":80", nil))
 }
