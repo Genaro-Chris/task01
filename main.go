@@ -30,7 +30,6 @@ func new_result(slack_name string, track string) Result {
 }
 
 func handle(w http.ResponseWriter, r *http.Request) {
-
 	slack_name, track := r.URL.Query().Get("slack_name"), r.URL.Query().Get("track")
 	result := new_result(slack_name, track)
 	res, _ := json.Marshal(result)
@@ -39,7 +38,13 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	w.Write(res)
 }
 
+func health(w http.ResponseWriter, r *http.Request) {
+	response := []byte("Alive")
+	w.Write(response)
+}
+
 func main() {
 	http.HandleFunc("/api", handle)
+	http.HandleFunc("/health", health)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
