@@ -23,8 +23,8 @@ func new_result(slack_name string, track string) Result {
 		Current_day:     time.Now().Weekday().String(),
 		Utc_time:        time.Now().UTC().Format("2006-01-02T15:04:05.000Z"),
 		Track:           track,
-		Github_file_url: "jhjh",
-		Github_repo_url: "jhgvjgv",
+		Github_file_url: "https://github.com/Genaro-Chris/task01/blob/main/main.go",
+		Github_repo_url: "https://github.com/Genaro-Chris/task01",
 		Status_code:     "200",
 	}
 }
