@@ -8,5 +8,6 @@ COPY . /app
 # Build the Go app
 RUN go build -o main . 
 # Expose port 8080 for incoming traffic 
-EXPOSE 8080 # Define the command to run the app when the container starts 
+EXPOSE 8080 
+# Define the command to run the app when the container starts 
 CMD ["/app/main"]
