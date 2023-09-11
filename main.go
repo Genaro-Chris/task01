@@ -45,6 +45,6 @@ func health(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/api", handle)
-	http.HandleFunc("/health", health)
+	//http.HandleFunc("/health", health)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
